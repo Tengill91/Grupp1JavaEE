@@ -17,6 +17,7 @@
             <th>Grocery id</th>
             <th>Grocery name</th>
             <th>Grocery price</th>
+            <th>Amount</th>
             <th>Action</th>
 
         </tr>
@@ -26,6 +27,7 @@
             <td th:text="${grocerymodel.id}"></td>
             <td th:text="${grocerymodel.name}"></td>
             <td th:text="${grocerymodel.price}"></td>
+            <td th:text="${grocerymodel.amount}"></td>
 
             <td>
                 <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Edit</a>

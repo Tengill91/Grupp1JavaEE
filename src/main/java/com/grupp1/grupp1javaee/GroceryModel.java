@@ -14,15 +14,16 @@ public class GroceryModel {
 
     String name;
     int price;
+    int amount;
 
-    // tom construktor
     public GroceryModel() {
     }
 
-    public GroceryModel(int id, String name, int price) {
+    public GroceryModel(int id, String name, int price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.amount = amount;
     }
 
     public int getId() {
@@ -49,13 +50,21 @@ public class GroceryModel {
         this.price = price;
     }
 
-    // To string
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public String toString() {
         return "GroceryModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
+                ", amount=" + amount +
                 '}';
     }
 }
