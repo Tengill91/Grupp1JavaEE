@@ -28,7 +28,8 @@
             <td th:text="${grocerymodel.price}"></td>
 
             <td>
-
+                <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Delete</a>
             </td>
 
         </tr>
