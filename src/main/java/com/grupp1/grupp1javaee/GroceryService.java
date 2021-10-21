@@ -25,6 +25,17 @@ public class GroceryService {
 
     }
 
+    public int countAllGrocerys(){
+
+        int totalSum=0;
+
+        List<GroceryModel> groceryList = getMYGrocerysS();
+        for(GroceryModel gm: groceryList) {
+            totalSum += (gm.price * gm.amount );
+        }
+        return totalSum;
+    }
+
     // hitta efter id
     public GroceryModel getGroceryByIdS(int id){
 

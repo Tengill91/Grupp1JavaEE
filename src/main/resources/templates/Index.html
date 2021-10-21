@@ -18,6 +18,7 @@
             <th>Grocery name</th>
             <th>Grocery price</th>
             <th>Amount</th>
+            <th>Total price</th>
             <th>Action</th>
 
         </tr>
@@ -28,15 +29,18 @@
             <td th:text="${grocerymodel.name}"></td>
             <td th:text="${grocerymodel.price}"></td>
             <td th:text="${grocerymodel.amount}"></td>
+            <td th:text="${grocerymodel.price * grocerymodel.amount}"></td>
 
             <td>
                 <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Edit</a>
                 <a th:href="@{/delete/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Delete</a>
             </td>
-
         </tr>
+
+
         </tbody>
     </table>
+    <h1 th:text="'Total cost: ' + ${totalCostHtml} + ' kr'"}> </h1>
 
     <a href="/new">
         <button style="margin-top :15px" type="button" class="btn btn-primary btn-lg">Add New Grocery</button>
