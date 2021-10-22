@@ -22,8 +22,10 @@ public class GroceryController {
 @RequestMapping(method = RequestMethod.GET)
     private String getAllGrocerys(Model model){
     List<GroceryModel> groceryList = groceryservice.getMYGrocerysS();
+    int totalCost = groceryservice.countAllGrocerys();
     // Thymeleaf behöver ett namn för att länka in metoden till Html documentet
     model.addAttribute("groceryListHTML",groceryList);
+    model.addAttribute("totalCostHtml",totalCost);
     return "Index";
     }
 

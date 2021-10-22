@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kundvagn</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
+
+<style>
+    body{background-color: darkslategray;}
+</style>
+
 <div class="container my-2">
 
-    <table border="1" class = "table table-striped table-responsive-md">
+    <table border="1" class = "table table-dark table-striped">
         <thead>
         <tr>
             <th>Grocery id</th>
             <th>Grocery name</th>
             <th>Grocery price</th>
             <th>Amount</th>
+            <th>Total price</th>
             <th>Action</th>
 
         </tr>
@@ -28,15 +35,18 @@
             <td th:text="${grocerymodel.name}"></td>
             <td th:text="${grocerymodel.price}"></td>
             <td th:text="${grocerymodel.amount}"></td>
+            <td th:text="${grocerymodel.price * grocerymodel.amount}"></td>
 
             <td>
                 <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Edit</a>
                 <a th:href="@{/delete/{id}(id=${grocerymodel.id})}"class="btn btn-primary">Delete</a>
             </td>
-
         </tr>
+
+
         </tbody>
     </table>
+    <h1 th:text="'Total cost: ' + ${totalCostHtml} + ' kr'"}> </h1>
 
     <a href="/new">
         <button style="margin-top :15px" type="button" class="btn btn-primary btn-lg">Add New Grocery</button>
