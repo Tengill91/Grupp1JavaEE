@@ -10,7 +10,7 @@ import java.util.List;
 
 @Controller
 // sätter start url
-@RequestMapping("/")
+@RequestMapping("/kundvagn")
 public class GroceryController {
 
     // injektar in GroceryService för den har dom färdiga metoderna i sig
