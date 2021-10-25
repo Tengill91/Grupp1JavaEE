@@ -1,0 +1,66 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kundvagn</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+<style>
+    body{background-color: darkslategray;}
+
+    h1{color: antiquewhite;}
+
+    tr{color: antiquewhite;}
+
+</style>
+
+<div class="container my-2">
+
+    <table border="1" class = "table table-dark table-striped">
+        <thead>
+        <tr>
+
+            <th>User id</th>
+            <th>User name</th>
+            <th>User password</th>
+            <th>Role</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="usermodel : ${userListHTML}">
+            <td th:text="${usermodel.id}"></td>
+            <td th:text="${usermodel.username}"></td>
+            <td th:text="${usermodel.password}"></td>
+            <td th:text="${usermodel.role}"></td>
+
+            <td>
+                <a th:href="@{/edit/{id}(id=${usermodel.id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${usermodel.id})}"class="btn btn-secondary">Delete</a>
+            </td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="/newUser">
+        <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New User</button>
+
+    </a>
+
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+
+</div>
+</body>
+</html>

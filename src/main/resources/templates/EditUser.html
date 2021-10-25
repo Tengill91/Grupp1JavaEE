@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Grocery cart</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<style>
+    body{background-color: darkslategray;}
+
+    h1{color: antiquewhite;}
+
+    tr{color: antiquewhite;}
+
+</style>
+
+<div class="container my-2">
+    <form action="#" th:action="@{/updateUser/{id}(id=${editUserHtml.id})}" th:object="${editUserHtml}" method="post">
+
+        <table border="1" class = "table table-dark table-striped">
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" th:field="*{username}" /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="text" th:field="*{password}" /></td>
+            </tr>
+
+            <tr>
+                <td>Role:</td>
+                <td><input type="text" th:field="*{role}" /></td>
+            </tr>
+
+        </table>
+        <button type="submit" class="btn btn-secondary">Save</button>
+    </form>
+</div>
+</body>
+</html>

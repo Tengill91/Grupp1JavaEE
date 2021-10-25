@@ -10,7 +10,7 @@ import java.util.List;
 
 @Controller
 // sätter start url
-@RequestMapping("/kundvagn")
+
 public class GroceryController {
 
     // injektar in GroceryService för den har dom färdiga metoderna i sig
@@ -19,7 +19,7 @@ public class GroceryController {
 
     // kanske ska döpa om groceryListHTML attributename till getAllGrocerysHTML
 
-@RequestMapping(method = RequestMethod.GET)
+@RequestMapping(path= "/index",method = RequestMethod.GET)
     private String getAllGrocerys(Model model){
     List<GroceryModel> groceryList = groceryservice.getMYGrocerysS();
     int totalCost = groceryservice.countAllGrocerys();
@@ -44,7 +44,7 @@ public class GroceryController {
     @RequestMapping(path = "/save", method = RequestMethod.POST)
     public String saveGrocery (@ModelAttribute("groceryModel") GroceryModel grocerymodel){
     groceryservice.saveGroceryS(grocerymodel);
-    return "redirect:/";
+    return "redirect:/index";
 
     }
 
@@ -60,13 +60,13 @@ public class GroceryController {
     private String updateGrocery(@PathVariable("id") int id, @ModelAttribute GroceryModel groceryModel){
     groceryModel.setId(id);
     groceryservice.updadeGroceryS(groceryModel);
-    return "redirect:/";
+    return "redirect:/index";
     }
 
     @GetMapping("/delete/{id}")
     private String deleteGrocery(@PathVariable("id") int id) {
         groceryservice.deleteGroceryS(id);
-        return "redirect:/";
+        return "redirect:/index";
     }
 
 

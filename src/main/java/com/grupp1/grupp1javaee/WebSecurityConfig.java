@@ -1,5 +1,6 @@
 package com.grupp1.grupp1javaee;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,26 +9,37 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
             http
             .authorizeRequests()
             .antMatchers("/", "/home").permitAll()  // Only these can be accesed by ANYONE
-                    .antMatchers("/admin").hasRole("ADMIN") // Only Admin can enter
+                    .antMatchers("/users").hasRole("ADMIN") // Only Admin can enter
+                    .antMatchers("/saveUser").hasRole("ADMIN") // Only Admin can enter
+                    .antMatchers("/editUser/{id}").hasRole("ADMIN") // Only Admin can enter
+                    .antMatchers("/updateUser/{id}").hasRole("ADMIN") // Only Admin can enter
+                    .antMatchers("/deleteUser/{id}").hasRole("ADMIN") // Only Admin can enter
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
-                    .loginPage("/login").defaultSuccessUrl("/kundvagn")
+                    .loginPage("/login")
                     .permitAll()
                     .and()
                 .logout()
-                    .permitAll();
+                    .permitAll()
+                    .and()
+                .authorizeRequests();
+
+
 
 
 
@@ -45,16 +57,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
 
-    @Bean
+
+
+
+
+   @Bean
     @Override
     public UserDetailsService userDetailsService() {
+
         UserDetails user =
                 User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .roles("USER")
+                        .username("u")
+                        .password("p")
+                        .roles("ADMIN")
                         .build();
 
         return new InMemoryUserDetailsManager(user);
     }
+
+
+
+
+
 }
