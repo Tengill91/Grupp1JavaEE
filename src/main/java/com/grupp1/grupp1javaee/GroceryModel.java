@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 // skapar ett table i våran databas och lägger in de objekt som den här klassen skapar i det tablet
 @Table(name = "kundvagn")
-public class GroceryModel {
+public class productModel {
 
     @Id
     // autogenererar id
@@ -16,10 +16,10 @@ public class GroceryModel {
     int price;
     int amount;
 
-    public GroceryModel() {
+    public productModel() {
     }
 
-    public GroceryModel(int id, String name, int price, int amount) {
+    public productModel(int id, String name, int price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -60,7 +60,7 @@ public class GroceryModel {
 
     @Override
     public String toString() {
-        return "GroceryModel{" +
+        return "productModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

@@ -6,62 +6,62 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GroceryService {
+public class productService {
 
     // injektar in repository så vi slipper skapa ett objekt utav den för att få använda dess crud operationer
     @Autowired
-    GroceryRepository groceryRepository;
+    productRepository productRepository;
 
 
     // metoder (crud)
 
 
     // skriv ut alla matvaror
-    public List<GroceryModel> getMYGrocerysS(){
+    public List<productModel> getMYproductsS(){
 
-        List<GroceryModel> groceryListS = groceryRepository.findAll();
+        List<productModel> productListS = productRepository.findAll();
 
-        return groceryListS;
+        return productListS;
 
     }
 
-    public int countAllGrocerys(){
+    public int countAllproducts(){
 
         int totalSum=0;
 
-        List<GroceryModel> groceryList = getMYGrocerysS();
-        for(GroceryModel gm: groceryList) {
+        List<productModel> productList = getMYproductsS();
+        for(productModel gm: productList) {
             totalSum += (gm.price * gm.amount );
         }
         return totalSum;
     }
 
     // hitta efter id
-    public GroceryModel getGroceryByIdS(int id){
+    public productModel getproductByIdS(int id){
 
-        return groceryRepository.findById(id).get();
+        return productRepository.findById(id).get();
     }
 
-    // save grocery
-    public GroceryModel saveGroceryS (GroceryModel groceryModel){
+    // save product
+    public productModel saveproductS (productModel productModel){
 
-        groceryRepository.save(groceryModel);
+        productRepository.save(productModel);
 
-        return getGroceryByIdS(groceryModel.getId());
+        return getproductByIdS(productModel.getId());
     }
 
-    // delete grocery
-    public void deleteGroceryS(int id){
-        groceryRepository.deleteById(id);
+    // delete product
+    public void deleteproductS(int id){
+        productRepository.deleteById(id);
 
 
     }
 
-    public GroceryModel updadeGroceryS(GroceryModel groceryModel){
+    public productModel updadeproductS(productModel productModel){
 
-        groceryRepository.save(groceryModel);
+        productRepository.save(productModel);
 
-        return groceryModel;
+        return productModel;
 
     }
 

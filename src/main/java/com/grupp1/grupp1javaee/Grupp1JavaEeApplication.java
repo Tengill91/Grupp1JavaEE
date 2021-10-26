@@ -13,7 +13,7 @@ public class Grupp1JavaEeApplication {
     public static void main(String[] args) {
         SpringApplication.run(Grupp1JavaEeApplication.class, args);
 
-        GroceryService groceryService = new GroceryService();
+        productService productService = new productService();
 
 
 
