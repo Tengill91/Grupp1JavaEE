@@ -4,12 +4,12 @@ import javax.persistence.*;
 
 @Entity
 // skapar ett table i våran databas och lägger in de objekt som den här klassen skapar i det tablet
-@Table(name = "kundvagn")
+@Table(name = "product")
 public class productModel {
 
     @Id
     // autogenererar id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;

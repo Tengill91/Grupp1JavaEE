@@ -12,11 +12,11 @@ import java.util.List;
 public class UserController {
 
 
-        // injektar in GroceryService för den har dom färdiga metoderna i sig
+        // injektar in productService för den har dom färdiga metoderna i sig
         @Autowired
         UserService userService;
 
-        // kanske ska döpa om groceryListHTML attributename till getAllGrocerysHTML
+        // kanske ska döpa om productListHTML attributename till getAllproductsHTML
 
         @RequestMapping(path = "/users",method = RequestMethod.GET)
         private String getAllUsers(Model model) {
@@ -31,10 +31,10 @@ public class UserController {
         public String showNewUserPage(Model model) {
             // skapar ett nytt tomt objekt som kommer läggas in i UserService metoden för att sedan sparas
             UserModel userModel = new UserModel();
-            //Viktigt groceryModel objektet blir en del utav editGroceryHtml namnet
-            // (man använder alltså editGroceryHtml för att komma åt groceryModel objektets variabler)
+            //Viktigt productModel objektet blir en del utav editproductHtml namnet
+            // (man använder alltså editproductHtml för att komma åt productModel objektets variabler)
             model.addAttribute("userModelHTML", userModel);
-            // länkar till AddGrocery.html
+            // länkar till Addproduct.html
             return "AddUser";
         }
 
@@ -47,7 +47,7 @@ public class UserController {
         }
 
         @GetMapping("/editUser/{id}")
-        private String editGrocery(@PathVariable("id") int id, Model model) {
+        private String editproduct(@PathVariable("id") int id, Model model) {
             UserModel userModel = userService.findUserByIdS(id);
             model.addAttribute("editUserHtml", userModel);
             return "EditUser";

@@ -19,7 +19,7 @@ public class productController {
 
     // kanske ska döpa om productListHTML attributename till getAllproductsHTML
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(path="/index",method = RequestMethod.GET)
     private String getAllproducts(Model model) {
         List<productModel> productList = productservice.getMYproductsS();
         int totalCost = productservice.countAllproducts();
@@ -44,7 +44,7 @@ public class productController {
     @RequestMapping(path = "/save", method = RequestMethod.POST)
     public String saveproduct(@ModelAttribute("productModel") productModel productmodel) {
         productservice.saveproductS(productmodel);
-        return "redirect:/";
+        return "redirect:/index";
 
     }
 
@@ -60,13 +60,13 @@ public class productController {
     private String updateproduct(@PathVariable("id") int id, @ModelAttribute productModel productModel) {
         productModel.setId(id);
         productservice.updadeproductS(productModel);
-        return "redirect:/";
+        return "redirect:/index";
     }
 
     @GetMapping("/delete/{id}")
     private String deleteproduct(@PathVariable("id") int id) {
         productservice.deleteproductS(id);
-        return "redirect:/";
+        return "redirect:/index";
     }
 
 
