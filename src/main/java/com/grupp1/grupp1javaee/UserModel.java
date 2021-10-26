@@ -8,7 +8,7 @@ public class UserModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Integer id;
     private String username;
     private String password;
     private String role;
