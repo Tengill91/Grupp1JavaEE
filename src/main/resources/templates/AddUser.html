@@ -20,23 +20,23 @@
 </style>
 
 <div class="container my-2">
-    <form action="#" th:action="@{/save}" th:object="${productModelHTML}" method="post">
+    <form action="#" th:action="@{/saveUser}" th:object="${userModelHTML}" method="post">
 
         <table border="1" class = "table table-dark table-striped">
 
             <tr>
-                <td>product name:</td>
-                <td><input type="text" th:field="*{name}" /></td>
+                <td>Username:</td>
+                <td><input type="text" th:field="*{username}" /></td>
             </tr>
 
             <tr>
-                <td>product price:</td>
-                <td><input type="text" th:field="*{price}" /></td>
+                <td>Password:</td>
+                <td><input type="text" th:field="*{password}" /></td>
             </tr>
 
             <tr>
-                <td>Amount:</td>
-                <td><input type="text" th:field="*{amount}" /></td>
+                <td>Role:</td>
+                <td><input type="text" th:field="*{role}" /></td>
             </tr>
 
 

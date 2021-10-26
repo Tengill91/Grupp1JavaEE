@@ -25,36 +25,34 @@
     <table border="1" class = "table table-dark table-striped">
         <thead>
         <tr>
-            <th>Grocery id</th>
-            <th>Grocery name</th>
-            <th>Grocery price</th>
-            <th>Amount</th>
-            <th>Total price</th>
+
+            <th>User id</th>
+            <th>User name</th>
+            <th>User password</th>
+            <th>Role</th>
             <th>Action</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="grocerymodel : ${groceryListHTML}">
-            <td th:text="${grocerymodel.id}"></td>
-            <td th:text="${grocerymodel.name}"></td>
-            <td th:text="${grocerymodel.price}"></td>
-            <td th:text="${grocerymodel.amount}"></td>
-            <td th:text="${grocerymodel.price * grocerymodel.amount}"></td>
+        <tr th:each="usermodel : ${userListHTML}">
+            <td th:text="${usermodel.id}"></td>
+            <td th:text="${usermodel.username}"></td>
+            <td th:text="${usermodel.password}"></td>
+            <td th:text="${usermodel.role}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${grocerymodel.id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/edit/{id}(id=${usermodel.id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${usermodel.id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 
 
         </tbody>
     </table>
-    <h1 th:text="'Total cost: ' + ${totalCostHtml} + ' kr'"}> </h1>
 
-    <a href="/new">
-        <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New Grocery</button>
+    <a href="/newUser">
+        <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New User</button>
 
     </a>
 
