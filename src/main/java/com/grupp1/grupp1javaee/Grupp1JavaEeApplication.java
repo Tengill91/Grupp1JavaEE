@@ -1,9 +1,8 @@
 package com.grupp1.grupp1javaee;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.grupp1.grupp1javaee.Grocery.GroceryService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @SpringBootApplication

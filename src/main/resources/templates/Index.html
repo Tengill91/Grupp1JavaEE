@@ -36,15 +36,15 @@
         </thead>
         <tbody>
         <tr th:each="grocerymodel : ${groceryListHTML}">
-            <td th:text="${grocerymodel.id}"></td>
+            <td th:text="${grocerymodel.grocery_id}"></td>
             <td th:text="${grocerymodel.name}"></td>
             <td th:text="${grocerymodel.price}"></td>
             <td th:text="${grocerymodel.amount}"></td>
             <td th:text="${grocerymodel.price * grocerymodel.amount}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${grocerymodel.id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${grocerymodel.id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/edit/{id}(id=${grocerymodel.grocery_id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${grocerymodel.grocery_id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 

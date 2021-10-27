@@ -36,14 +36,14 @@
         </thead>
         <tbody>
         <tr th:each="usermodel : ${userListHTML}">
-            <td th:text="${usermodel.id}"></td>
-            <td th:text="${usermodel.username}"></td>
+            <td th:text="${usermodel.user_id}"></td>
+            <td th:text="${usermodel.userName}"></td>
             <td th:text="${usermodel.password}"></td>
             <td th:text="${usermodel.role}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${usermodel.id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${usermodel.id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/edit/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 

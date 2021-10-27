@@ -1,6 +1,12 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.User;
 
+import com.grupp1.grupp1javaee.User.UserModel;
+import com.grupp1.grupp1javaee.User.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,6 +16,8 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
+
+
 
     public List<UserModel> getUserS(){
 
@@ -27,11 +35,10 @@ public class UserService {
     }
 
 
-
     public UserModel saveUserS(UserModel userModel){
         userRepository.save(userModel);
 
-        return findUserByIdS(userModel.getId());
+        return findUserByIdS(userModel.getUser_id());
     }
 
 
@@ -49,4 +56,11 @@ public class UserService {
 
 
 
-}
+
+
+    }
+
+
+
+
+

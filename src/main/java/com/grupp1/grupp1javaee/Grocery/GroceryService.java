@@ -1,5 +1,7 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.Grocery;
 
+import com.grupp1.grupp1javaee.Grocery.GroceryModel;
+import com.grupp1.grupp1javaee.Grocery.GroceryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,6 @@ public class GroceryService {
     public List<GroceryModel> getMYGrocerysS(){
 
         List<GroceryModel> groceryListS = groceryRepository.findAll();
-
         return groceryListS;
 
     }
@@ -31,7 +32,7 @@ public class GroceryService {
 
         List<GroceryModel> groceryList = getMYGrocerysS();
         for(GroceryModel gm: groceryList) {
-            totalSum += (gm.price * gm.amount );
+            totalSum += (gm.getPrice() * gm.getAmount() );
         }
         return totalSum;
     }
@@ -47,7 +48,7 @@ public class GroceryService {
 
         groceryRepository.save(groceryModel);
 
-        return getGroceryByIdS(groceryModel.getId());
+        return getGroceryByIdS(groceryModel.getGrocery_id());
     }
 
     // delete grocery

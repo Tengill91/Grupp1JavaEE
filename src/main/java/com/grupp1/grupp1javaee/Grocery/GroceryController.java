@@ -1,6 +1,5 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.Grocery;
 
-import org.hibernate.annotations.common.reflection.XMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +29,7 @@ public class GroceryController {
     }
 
 
-    @RequestMapping("/new")
+    @RequestMapping(path = "/new")
     public String showNewGroceryPage(Model model){
     // skapar ett nytt tomt objekt
     GroceryModel groceryModel= new GroceryModel();
@@ -58,7 +57,7 @@ public class GroceryController {
 
     @RequestMapping(path = "/update/{id}", method = RequestMethod.POST)
     private String updateGrocery(@PathVariable("id") int id, @ModelAttribute GroceryModel groceryModel){
-    groceryModel.setId(id);
+    groceryModel.setGrocery_id(id);
     groceryservice.updadeGroceryS(groceryModel);
     return "redirect:/index";
     }
