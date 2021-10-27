@@ -1,11 +1,11 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.model;
 
 import javax.persistence.*;
 
 @Entity
 // skapar ett table i våran databas och lägger in de objekt som den här klassen skapar i det tablet
 @Table(name = "product")
-public class productModel {
+public class Product {
 
     @Id
     // autogenererar id
@@ -13,13 +13,13 @@ public class productModel {
     int id;
 
     String name;
-    int price;
-    int amount;
+    private int price;
+    private int amount;
 
-    public productModel() {
+    public Product() {
     }
 
-    public productModel(int id, String name, int price, int amount) {
+    public Product(int id, String name, int price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;

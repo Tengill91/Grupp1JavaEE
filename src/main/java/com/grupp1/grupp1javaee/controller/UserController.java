@@ -1,5 +1,7 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.controller;
 
+import com.grupp1.grupp1javaee.model.User;
+import com.grupp1.grupp1javaee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,7 @@ public class UserController {
 
         @RequestMapping(path = "/users",method = RequestMethod.GET)
         private String getAllUsers(Model model) {
-            List<UserModel> userList = userService.getUserS();
+            List<User> userList = userService.getUserS();
             // Thymeleaf behöver ett namn för att länka in metoden till Html documentet
             model.addAttribute("userListHTML", userList);
             return "AllUsers";
@@ -30,7 +32,7 @@ public class UserController {
         @RequestMapping("/newUser")
         public String showNewUserPage(Model model) {
             // skapar ett nytt tomt objekt som kommer läggas in i UserService metoden för att sedan sparas
-            UserModel userModel = new UserModel();
+            User userModel = new User();
             //Viktigt productModel objektet blir en del utav editproductHtml namnet
             // (man använder alltså editproductHtml för att komma åt productModel objektets variabler)
             model.addAttribute("userModelHTML", userModel);
@@ -40,7 +42,7 @@ public class UserController {
 
         // fråga kristoffer om @ModelAttribute
         @RequestMapping(path = "/saveUser", method = RequestMethod.POST)
-        public String saveUser(@ModelAttribute("userModel") UserModel userModel) {
+        public String saveUser(@ModelAttribute("userModel") User userModel) {
             userService.saveUserS(userModel);
             return "redirect:/users";
 
@@ -48,14 +50,14 @@ public class UserController {
 
         @GetMapping("/editUser/{id}")
         private String editproduct(@PathVariable("id") int id, Model model) {
-            UserModel userModel = userService.findUserByIdS(id);
+            User userModel = userService.findUserByIdS(id);
             model.addAttribute("editUserHtml", userModel);
             return "EditUser";
 
         }
 
         @RequestMapping(path = "/updateUser/{id}", method = RequestMethod.POST)
-        private String updateUser(@PathVariable("id") int id, @ModelAttribute UserModel userModel) {
+        private String updateUser(@PathVariable("id") int id, @ModelAttribute User userModel) {
             userModel.setId(id);
             userService.updateUserS(userModel);
             return "redirect:/users";

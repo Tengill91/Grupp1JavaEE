@@ -1,6 +1,7 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.controller;
 
-import org.hibernate.annotations.common.reflection.XMethod;
+import com.grupp1.grupp1javaee.model.Product;
+import com.grupp1.grupp1javaee.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,17 +12,17 @@ import java.util.List;
 @Controller
 // sätter start url
 @RequestMapping("/")
-public class productController {
+public class ProductController {
 
     // injektar in productService för den har dom färdiga metoderna i sig
     @Autowired
-    productService productservice;
+    ProductService productservice;
 
     // kanske ska döpa om productListHTML attributename till getAllproductsHTML
 
     @RequestMapping(path="/index",method = RequestMethod.GET)
     private String getAllproducts(Model model) {
-        List<productModel> productList = productservice.getMYproductsS();
+        List<Product> productList = productservice.getMYproductsS();
         int totalCost = productservice.countAllproducts();
         // Thymeleaf behöver ett namn för att länka in metoden till Html documentet
         model.addAttribute("productListHTML", productList);
@@ -33,16 +34,16 @@ public class productController {
     @RequestMapping("/new")
     public String showNewproductPage(Model model) {
         // skapar ett nytt tomt objekt
-        productModel productModel = new productModel();
+        Product product = new Product();
         //Viktigt productModel objektet blir en del utav editproductHtml namnet
         // (man använder alltså editproductHtml för att komma åt productModel objektets variabler)
-        model.addAttribute("productModelHTML", productModel);
+        model.addAttribute("productModelHTML", product);
         // länkar till Addproduct.html
         return "Addproduct";
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public String saveproduct(@ModelAttribute("productModel") productModel productmodel) {
+    public String saveproduct(@ModelAttribute("productModel") Product productmodel) {
         productservice.saveproductS(productmodel);
         return "redirect:/index";
 
@@ -50,16 +51,16 @@ public class productController {
 
     @GetMapping("/edit/{id}")
     private String editproduct(@PathVariable("id") int id, Model model) {
-        productModel productModel = productservice.getproductByIdS(id);
-        model.addAttribute("editproductHtml", productModel);
+        Product product = productservice.getproductByIdS(id);
+        model.addAttribute("editproductHtml", product);
         return "Editproduct";
 
     }
 
     @RequestMapping(path = "/update/{id}", method = RequestMethod.POST)
-    private String updateproduct(@PathVariable("id") int id, @ModelAttribute productModel productModel) {
-        productModel.setId(id);
-        productservice.updadeproductS(productModel);
+    private String updateproduct(@PathVariable("id") int id, @ModelAttribute Product product) {
+        product.setId(id);
+        productservice.updadeproductS(product);
         return "redirect:/index";
     }
 

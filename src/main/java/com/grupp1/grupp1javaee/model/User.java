@@ -1,22 +1,22 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.model;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "userList")
-public class UserModel {
+@Table(name = "user")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
     private String username;
     private String password;
     private String role;
 
-    public UserModel() {
+    public User() {
     }
 
-    public UserModel(int id, String username, String password, String role) {
+    public User(int id, String username, String password, String role) {
         this.id = id;
         this.username = username;
         this.password = password;
