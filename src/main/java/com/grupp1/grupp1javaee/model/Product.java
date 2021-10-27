@@ -1,25 +1,25 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.model;
 
 import javax.persistence.*;
 
 @Entity
 // skapar ett table i våran databas och lägger in de objekt som den här klassen skapar i det tablet
-@Table(name = "kundvagn")
-public class GroceryModel {
+@Table(name = "product")
+public class Product {
 
     @Id
     // autogenererar id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
 
     String name;
-    int price;
-    int amount;
+    private int price;
+    private int amount;
 
-    public GroceryModel() {
+    public Product() {
     }
 
-    public GroceryModel(int id, String name, int price, int amount) {
+    public Product(int id, String name, int price, int amount) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -60,7 +60,7 @@ public class GroceryModel {
 
     @Override
     public String toString() {
-        return "GroceryModel{" +
+        return "productModel{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

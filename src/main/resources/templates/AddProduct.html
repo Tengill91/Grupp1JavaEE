@@ -20,17 +20,17 @@
 </style>
 
 <div class="container my-2">
-    <form action="#" th:action="@{/save}" th:object="${groceryModelHTML}" method="post">
+    <form action="#" th:action="@{/save}" th:object="${productModelHTML}" method="post">
 
         <table border="1" class = "table table-dark table-striped">
 
             <tr>
-                <td>Grocery name:</td>
+                <td>product name:</td>
                 <td><input type="text" th:field="*{name}" /></td>
             </tr>
 
             <tr>
-                <td>Grocery price:</td>
+                <td>product price:</td>
                 <td><input type="text" th:field="*{price}" /></td>
             </tr>
 

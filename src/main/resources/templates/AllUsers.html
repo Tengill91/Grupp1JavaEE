@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Products</title>
+    <title>Kundvagn</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -25,36 +25,34 @@
     <table border="1" class = "table table-dark table-striped">
         <thead>
         <tr>
-            <th>product id</th>
-            <th>product name</th>
-            <th>product price</th>
-            <th>Amount</th>
-            <th>Total price</th>
+
+            <th>User id</th>
+            <th>User name</th>
+            <th>User password</th>
+            <th>Role</th>
             <th>Action</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="productmodel : ${productListHTML}">
-            <td th:text="${productmodel.id}"></td>
-            <td th:text="${productmodel.name}"></td>
-            <td th:text="${productmodel.price}"></td>
-            <td th:text="${productmodel.amount}"></td>
-            <td th:text="${productmodel.price * productmodel.amount}"></td>
+        <tr th:each="usermodel : ${userListHTML}">
+            <td th:text="${usermodel.id}"></td>
+            <td th:text="${usermodel.username}"></td>
+            <td th:text="${usermodel.password}"></td>
+            <td th:text="${usermodel.role}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${productmodel.id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${productmodel.id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/edit/{id}(id=${usermodel.id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${usermodel.id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 
 
         </tbody>
     </table>
-    <h1 th:text="'Total cost: ' + ${totalCostHtml} + ' kr'"}> </h1>
 
-    <a href="/new">
-        <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New product</button>
+    <a href="/newUser">
+        <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New User</button>
 
     </a>
 
