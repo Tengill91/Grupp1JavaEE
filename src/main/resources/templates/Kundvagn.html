@@ -45,8 +45,8 @@
             <td th:text="${kundvagnmodel.price * kundvagnmodel.amount}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/editKundvagnGrocery/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/deleteKundvagnGrocery/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 

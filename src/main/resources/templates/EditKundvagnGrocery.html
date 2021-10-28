@@ -19,12 +19,16 @@
 </style>
 
 <div class="container my-2">
-    <form action="#" th:action="@{/update/{id}(id=${editGroceryHtml.id})}" th:object="${editGroceryHtml}" method="post">
+    <form action="#" th:action="@{/updateKundvagn/{id}(id=${editKundvagnGroceryHtml.kundvagn_id})}" th:object="${editKundvagnGroceryHtml}" method="post">
 
         <table border="1" class = "table table-dark table-striped">
             <tr>
+                <td>User name:</td>
+                <td><input type="text" th:field="*{user_name}" /></td>
+            </tr>
+            <tr>
                 <td>Grocery name:</td>
-                <td><input type="text" th:field="*{name}" /></td>
+                <td><input type="text" th:field="*{grocery_name}" /></td>
             </tr>
             <tr>
                 <td>Grocery price:</td>
