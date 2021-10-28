@@ -42,8 +42,8 @@
             <td th:text="${usermodel.role}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/editUser/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/deleteUser/{id}(id=${usermodel.user_id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 

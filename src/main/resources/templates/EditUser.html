@@ -19,12 +19,12 @@
 </style>
 
 <div class="container my-2">
-    <form action="#" th:action="@{/updateUser/{id}(id=${editUserHtml.id})}" th:object="${editUserHtml}" method="post">
+    <form action="#" th:action="@{/updateUser/{id}(id=${editUserHtml.user_id})}" th:object="${editUserHtml}" method="post">
 
         <table border="1" class = "table table-dark table-striped">
             <tr>
                 <td>Username:</td>
-                <td><input type="text" th:field="*{username}" /></td>
+                <td><input type="text" th:field="*{userName}" /></td>
             </tr>
             <tr>
                 <td>Password:</td>
