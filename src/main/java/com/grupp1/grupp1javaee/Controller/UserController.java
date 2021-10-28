@@ -1,5 +1,7 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.Controller;
 
+import com.grupp1.grupp1javaee.Model.UserModel;
+import com.grupp1.grupp1javaee.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,11 +40,22 @@ public class UserController {
             return "AddUser";
         }
 
+    @RequestMapping("/createAccount")
+    public String createAccount(Model model) {
+        // skapar ett nytt tomt objekt som kommer läggas in i UserService metoden för att sedan sparas
+        UserModel userModel = new UserModel();
+        //Viktigt groceryModel objektet blir en del utav editGroceryHtml namnet
+        // (man använder alltså editGroceryHtml för att komma åt groceryModel objektets variabler)
+        model.addAttribute("createAccountHTML", userModel);
+        // länkar till AddGrocery.html
+        return "CreateAccount";
+    }
+
         // fråga kristoffer om @ModelAttribute
         @RequestMapping(path = "/saveUser", method = RequestMethod.POST)
         public String saveUser(@ModelAttribute("userModel") UserModel userModel) {
             userService.saveUserS(userModel);
-            return "redirect:/users";
+            return "redirect:/index";
 
         }
 
@@ -56,7 +69,7 @@ public class UserController {
 
         @RequestMapping(path = "/updateUser/{id}", method = RequestMethod.POST)
         private String updateUser(@PathVariable("id") int id, @ModelAttribute UserModel userModel) {
-            userModel.setId(id);
+            userModel.setUser_id(id);
             userService.updateUserS(userModel);
             return "redirect:/users";
         }

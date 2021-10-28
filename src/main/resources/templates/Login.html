@@ -5,6 +5,28 @@
   <title>Spring Security Example </title>
 </head>
 <body>
+
+<style>
+  body{background-color: darkslategray;}
+
+  div{text-align: center;}
+
+  .button{text-align: center}
+
+  h1{
+    color: antiquewhite;
+    text-align: center;
+  }
+
+  .länk{
+    text-align: center;
+    color: antiquewhite;
+  }
+
+  tr{color: antiquewhite;}
+
+</style>
+
 <div th:if="${param.error}">
   Invalid username and password.
 </div>
@@ -14,7 +36,15 @@
 <form th:action="@{/login}" method="post">
   <div><label> User Name : <input type="text" name="username"/> </label></div>
   <div><label> Password: <input type="password" name="password"/> </label></div>
-  <div><input type="submit" value="Sign In"/></div>
+  <div>
+    <input type="submit" value="Sign In"/>
+
+    <a href="/createAccount">
+    <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New User</button>
+    </a>
+  </div>
+
+
 </form>
 </body>
 </html>

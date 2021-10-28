@@ -1,4 +1,4 @@
-package com.grupp1.grupp1javaee;
+package com.grupp1.grupp1javaee.security.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
