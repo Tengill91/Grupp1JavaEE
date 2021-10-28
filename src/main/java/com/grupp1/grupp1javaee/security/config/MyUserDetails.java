@@ -1,6 +1,6 @@
 package com.grupp1.grupp1javaee.security.config;
 
-import com.grupp1.grupp1javaee.User.UserModel;
+import com.grupp1.grupp1javaee.Model.UserModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

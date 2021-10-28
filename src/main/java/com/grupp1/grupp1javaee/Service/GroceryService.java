@@ -1,7 +1,7 @@
-package com.grupp1.grupp1javaee.Grocery;
+package com.grupp1.grupp1javaee.Service;
 
-import com.grupp1.grupp1javaee.Grocery.GroceryModel;
-import com.grupp1.grupp1javaee.Grocery.GroceryRepository;
+import com.grupp1.grupp1javaee.Model.GroceryModel;
+import com.grupp1.grupp1javaee.Repository.GroceryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

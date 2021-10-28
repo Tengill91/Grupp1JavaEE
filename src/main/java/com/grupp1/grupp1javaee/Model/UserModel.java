@@ -1,6 +1,6 @@
-package com.grupp1.grupp1javaee.User;
+package com.grupp1.grupp1javaee.Model;
 
-import com.grupp1.grupp1javaee.Grocery.GroceryModel;
+import com.grupp1.grupp1javaee.Model.GroceryModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

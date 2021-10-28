@@ -1,6 +1,6 @@
-package com.grupp1.grupp1javaee.User;
+package com.grupp1.grupp1javaee.Repository;
 
-import com.grupp1.grupp1javaee.User.UserModel;
+import com.grupp1.grupp1javaee.Model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

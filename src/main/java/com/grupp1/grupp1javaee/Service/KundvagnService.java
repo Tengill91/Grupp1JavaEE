@@ -1,9 +1,7 @@
-package com.grupp1.grupp1javaee.Kundvagn;
+package com.grupp1.grupp1javaee.Service;
 
-import com.grupp1.grupp1javaee.Grocery.GroceryModel;
+import com.grupp1.grupp1javaee.Repository.KundvagnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 public class KundvagnService {
 

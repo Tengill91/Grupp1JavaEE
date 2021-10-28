@@ -1,12 +1,8 @@
-package com.grupp1.grupp1javaee.User;
+package com.grupp1.grupp1javaee.Service;
 
-import com.grupp1.grupp1javaee.User.UserModel;
-import com.grupp1.grupp1javaee.User.UserRepository;
+import com.grupp1.grupp1javaee.Model.UserModel;
+import com.grupp1.grupp1javaee.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

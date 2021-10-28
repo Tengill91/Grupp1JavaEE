@@ -1,6 +1,6 @@
 package com.grupp1.grupp1javaee;
 
-import com.grupp1.grupp1javaee.Grocery.GroceryService;
+import com.grupp1.grupp1javaee.Service.GroceryService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

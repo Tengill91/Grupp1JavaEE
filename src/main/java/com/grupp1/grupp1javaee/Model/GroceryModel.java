@@ -1,6 +1,4 @@
-package com.grupp1.grupp1javaee.Grocery;
-
-import com.grupp1.grupp1javaee.User.UserModel;
+package com.grupp1.grupp1javaee.Model;
 
 import javax.persistence.*;
 

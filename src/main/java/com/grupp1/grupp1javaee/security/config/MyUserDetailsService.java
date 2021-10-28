@@ -1,8 +1,7 @@
 package com.grupp1.grupp1javaee.security.config;
 
-import com.grupp1.grupp1javaee.User.UserModel;
-import com.grupp1.grupp1javaee.User.UserRepository;
-import com.grupp1.grupp1javaee.security.config.MyUserDetails;
+import com.grupp1.grupp1javaee.Model.UserModel;
+import com.grupp1.grupp1javaee.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

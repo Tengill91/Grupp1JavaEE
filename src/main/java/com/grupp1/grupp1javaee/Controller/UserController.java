@@ -1,5 +1,7 @@
-package com.grupp1.grupp1javaee.User;
+package com.grupp1.grupp1javaee.Controller;
 
+import com.grupp1.grupp1javaee.Model.UserModel;
+import com.grupp1.grupp1javaee.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
