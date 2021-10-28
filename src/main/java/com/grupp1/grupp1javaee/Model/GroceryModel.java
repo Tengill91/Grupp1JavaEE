@@ -1,5 +1,8 @@
 package com.grupp1.grupp1javaee.Model;
 
+import com.grupp1.grupp1javaee.Service.KundvagnService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,10 +10,13 @@ import javax.persistence.*;
 @Table(name = "grocery_list")
 public class GroceryModel {
 
+
+
     @Id
     // autogenererar id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int grocery_id;
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="user_id")
     private UserModel owner;

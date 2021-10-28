@@ -22,9 +22,7 @@ public class KundvagnService {
     GroceryRepository groceryRepository;
 
 
-    public List<KundvagnModel> getMYGrocerysS(){
-
-        List<KundvagnModel> groceryListS = kundvagnRepository.findAll();
+    public String findUser(){
 
         String loggedInUser;
 
@@ -33,6 +31,21 @@ public class KundvagnService {
             loggedInUser = ((UserDetails)principal). getUsername();
         } else {
             loggedInUser = principal. toString();
+        }
+        return loggedInUser;
+    }
+
+    public List<KundvagnModel> getMYGrocerysS(){
+
+        List<KundvagnModel> groceryListS = kundvagnRepository.findAll();
+
+        String loggedInUser;
+
+        Object principal = SecurityContextHolder. getContext(). getAuthentication(). getPrincipal();
+        if (principal instanceof UserDetails) {
+            loggedInUser = ((UserDetails)principal).getUsername();
+        } else {
+            loggedInUser = principal.toString();
         }
 
         List<KundvagnModel> sortedGroceryListS = groceryListS.stream().filter(u -> u.getUser_name().equals(loggedInUser)).collect(Collectors.toList());
@@ -54,11 +67,36 @@ public class KundvagnService {
     }
 
 
-    /*public List<GroceryModel> getMYGrocerysS() {
 
-        List<GroceryModel> groceryListS = kundvagnRepository.findAllById(2);
-        return groceryListS;
-    }*/
+    // hitta efter id
+    public KundvagnModel getKundvagnGroceryByIdS(int id){
+
+        return kundvagnRepository.findById(id).get();
+    }
+
+    // save grocery
+    public KundvagnModel saveKundvagnGroceryS (KundvagnModel kundvagnModel){
+
+        kundvagnRepository.save(kundvagnModel);
+
+        return getKundvagnGroceryByIdS(kundvagnModel.getKundvagn_id());
+    }
+
+
+    // delete grocery
+    public void deleteKundvagnGroceryS(int id){
+        kundvagnRepository.deleteById(id);
+
+
+    }
+
+    public KundvagnModel updadeKundvagnGroceryS(KundvagnModel kundvagnModel){
+
+        kundvagnRepository.save(kundvagnModel);
+
+        return kundvagnModel;
+
+    }
 
 
 }

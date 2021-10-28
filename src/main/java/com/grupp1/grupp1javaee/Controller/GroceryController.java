@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-// sätter start url
-
 public class GroceryController {
 
     // injektar in GroceryService för den har dom färdiga metoderna i sig

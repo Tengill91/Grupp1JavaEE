@@ -26,10 +26,8 @@
         <thead>
         <tr>
             <th>kundvagn id</th>
-            <th>Grocery id</th>
-            <th>Grocery name</th>
-            <th>User id</th>
             <th>Username</th>
+            <th>Grocery name</th>
             <th>Grocery price</th>
             <th>Amount</th>
             <th>Total price</th>
@@ -40,17 +38,15 @@
         <tbody>
         <tr th:each="kundvagnmodel : ${KundvagnListHTML}">
             <td th:text="${kundvagnmodel.kundvagn_id}"></td>
-            <td th:text="${kundvagnmodel.grocery_id}"></td>
-            <td th:text="${kundvagnmodel.grocery_name}"></td>
-            <td th:text="${kundvagnmodel.user_id}"></td>
             <td th:text="${kundvagnmodel.user_name}"></td>
+            <td th:text="${kundvagnmodel.grocery_name}"></td>
             <td th:text="${kundvagnmodel.price}"></td>
             <td th:text="${kundvagnmodel.amount}"></td>
             <td th:text="${kundvagnmodel.price * kundvagnmodel.amount}"></td>
 
             <td>
-                <a th:href="@{/edit/{id}(id=${kundvagnmodel.grocery_id})}"class="btn btn-secondary">Edit</a>
-                <a th:href="@{/delete/{id}(id=${kundvagnmodel.grocery_id})}"class="btn btn-secondary">Delete</a>
+                <a th:href="@{/edit/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Edit</a>
+                <a th:href="@{/delete/{id}(id=${kundvagnmodel.kundvagn_id})}"class="btn btn-secondary">Delete</a>
             </td>
         </tr>
 
@@ -59,7 +55,7 @@
     </table>
     <h1 th:text="'Total cost: ' + ${totalCostHtml} + ' kr'"}> </h1>
 
-    <a href="/new">
+    <a href="/newKundvagnGrocery">
         <button style="margin-top :15px" type="button" class="btn btn-secondary">Add New Grocery</button>
 
     </a>
