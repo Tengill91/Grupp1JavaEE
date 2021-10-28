@@ -1,6 +1,14 @@
 package com.grupp1.grupp1javaee.Model;
 
+import lombok.*;
+
 import javax.persistence.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 
 @Entity
 @Table(name = "kundvagn")
@@ -12,11 +20,13 @@ public class KundvagnModel {
     private int kundvagn_id;
     private int user_id;
     private int Grocery_id;
-    private int quantity;
+    private int amount;
+    private int price;
 
-    //tom construcktor
-    public KundvagnModel() {
-    }
+    private String grocery_name;
+    private String user_name;
+
+
 
 
 }
