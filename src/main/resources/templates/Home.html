@@ -6,8 +6,25 @@
     <title>Home</title>
 </head>
 <body>
-<h1> Home page! </h1>
+<style>
+    body{background-color: darkslategray;}
 
-<p>Click <a th:href="@{/index}">here</a> Kundvagn.</p>
+    h1{
+        color: antiquewhite;
+        text-align: center;
+    }
+
+    .länk{
+        text-align: center;
+        color: antiquewhite;
+    }
+
+    tr{color: antiquewhite;}
+
+</style>
+
+<h1> Kundvagns Appen! </h1>
+
+<p class="länk"> Click <a th:href="@{/index}">here</a> Kundvagn.</p>
 </body>
 </html>
