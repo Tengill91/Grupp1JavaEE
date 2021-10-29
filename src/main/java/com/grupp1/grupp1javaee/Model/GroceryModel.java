@@ -12,6 +12,7 @@ public class GroceryModel {
 
 
 
+
     @Id
     // autogenererar id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
